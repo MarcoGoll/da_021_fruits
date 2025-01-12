@@ -17,8 +17,20 @@
                     } @else {
                     <img src="./assets/img/stars/star-empty.svg" alt="" srcset="">
                     }
+                    <!-- @switch (???) {
+                    @case (item.stars >= counter) {
+                    <img src="./assets/img/stars/star.svg" alt="" srcset="">
                     }
-                    <p>({{item.stars}})</p>
+                    @case (item.stars >= counter-0.5) {
+                    <img src="./assets/img/stars/star-half.svg" alt="" srcset="">
+                    }
+                    @default{
+                    <img src="./assets/img/stars/star-empty.svg" alt="" srcset="">
+                    }
+                    } -->
+                    }
+                    <p [ngStyle]="{color: item.stars > 3 ? fontColorGood:fontColorBad, 'background-color':'white'}">
+                        ({{item.stars}})</p>
                 </div>
             </div>
             <div><b>Art:</b><br>{{item.genus}}</div>

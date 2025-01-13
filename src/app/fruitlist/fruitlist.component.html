@@ -1,52 +1,5 @@
 <div class="fruitlist_content">
-    @for(item of fruitlist; track fruitlist){
-    <section class="singleFruitBox">
-        <div>
-            <img src="./assets/img/fruits/{{item.img}}" alt="" srcset="">
-        </div>
-        <div>
-            <h2> {{item.name}}</h2>
-            <div>
-                <p><b>Bewertung:</b></p>
-                <div>
-                    @for (counter of [1,2,3,4,5] ; track fruitlist) {
-                    @if (item.stars >= counter) {
-                    <img src="./assets/img/stars/star.svg" alt="" srcset="">
-                    } @else if (item.stars >= counter-0.5) {
-                    <img src="./assets/img/stars/star-half.svg" alt="" srcset="">
-                    } @else {
-                    <img src="./assets/img/stars/star-empty.svg" alt="" srcset="">
-                    }
-                    <!-- @switch (???) {
-                    @case (item.stars >= counter) {
-                    <img src="./assets/img/stars/star.svg" alt="" srcset="">
-                    }
-                    @case (item.stars >= counter-0.5) {
-                    <img src="./assets/img/stars/star-half.svg" alt="" srcset="">
-                    }
-                    @default{
-                    <img src="./assets/img/stars/star-empty.svg" alt="" srcset="">
-                    }
-                    } -->
-                    }
-                    <p [ngStyle]="{color: item.stars > 3 ? fontColorGood:fontColorBad, 'background-color':'white'}">
-                        ({{item.stars}})</p>
-                </div>
-            </div>
-            <div><b>Art:</b><br>{{item.genus}}</div>
-            <div><b>Beschreibung:</b><br>{{item.description}}</div>
-            <div>
-                <div>
-                    @for (review of item.reviews; track $index) {
-                    <div><b>{{review.name}}:</b><br>{{review.text}}</div>
-                    } @empty {
-                    no comments
-                    }
-                </div>
-                <div><input type="text"><button><img src="./assets/img/arrow-35-32.png" alt="" srcset=""></button>
-                </div>
-            </div>
-        </div>
-    </section>
+    @for(singleFruit of fruitlist; track fruitlist; let index =$index){
+    <app-single-fruit [fruit]="singleFruit"></app-single-fruit>
     }
 </div>

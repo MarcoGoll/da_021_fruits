@@ -1,0 +1,37 @@
+<section class="singleFruitBox">
+    <div>
+        <img src="./assets/img/fruits/{{fruit.img}}" alt="" srcset="">
+    </div>
+    <div>
+        <h2>{{fruit.name}}</h2>
+        <div>
+            <p><b>Bewertung:</b></p>
+            <div>
+                @for (counter of [1,2,3,4,5] ; track fruit) {
+                @if (fruit.stars >= counter) {
+                <img src="./assets/img/stars/star.svg" alt="" srcset="">
+                } @else if (fruit.stars >= counter-0.5) {
+                <img src="./assets/img/stars/star-half.svg" alt="" srcset="">
+                } @else {
+                <img src="./assets/img/stars/star-empty.svg" alt="" srcset="">
+                }
+                }
+                <p>
+                    ({{fruit.stars}})</p>
+            </div>
+        </div>
+        <div><b>Art:</b><br>{{fruit.genus}}</div>
+        <div><b>Beschreibung:</b><br>{{fruit.description}}</div>
+        <div>
+            <div>
+                @for (review of fruit.reviews; track $index) {
+                <div><b>{{review.name}}:</b><br>{{review.text}}</div>
+                } @empty {
+                no comments
+                }
+            </div>
+            <div><input type="text"><button><img src="./assets/img/arrow-35-32.png" alt="" srcset=""></button>
+            </div>
+        </div>
+    </div>
+</section>

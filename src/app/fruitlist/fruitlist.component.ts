@@ -66,4 +66,18 @@ export class FruitlistComponent {
 
   howItWorks: string = "bad";
 
+  logIndex(index: number) {
+    console.log(index);
+  }
+
+  logName(name: string) {
+    console.log(name);
+  }
+
+  addComment(comment: string, index: number) {
+    console.log(comment);
+
+    this.fruitlist[index].reviews.push({ name: "USER", text: comment });
+  }
+
 }
